@@ -1,0 +1,46 @@
+To run the application:
+
+Run the below command
+meteor npm install --save babel-runtime
+
+To run the application
+ meteor
+
+The application has a start up function to insert records into the database. These records are entered with a different owner id and hence cannot be deleted by
+the current user.
+
+To run in test mode
+ meteor test --driver-package=practicalmeteor:mocha
+
+Some key considerations:
+=======================
+To manage the records at user level, user registration process would have be straight forward step, but i took the alternative approaches to manage user records.
+
+In that direction, two thoughts came to mind
+
+a) Generate a Session variable using Unique ID and let the user manage the data. Since the session variable was held in the temp storage,
+   the user would be able to add and remove records.
+
+   It was a simpler approach, but the down side was a flaw. since user may leave the session and return back to the application at later time,
+   since the Unique ID will not be retained, his next session will have a different Unique ID. This leads to a scenario where added records cannot
+   be deleted incase the user left a session with out clearing them.
+
+b) This lead to look for unique id that will remain manageble across sessions, and that lead me to explore the device id capture which will remain
+   the same for the same device. In this concept, the user is the device itself and all the records will remain manageble on a particular device.
+   This lead me to use FingerPrint library, which i am pulling from cloudflare.
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/1.4.1/fingerprint2.min.js" async='async'></script>
+
+c) I used Iron Router for proper structuring.
+
+d) Used Twitter Bootstrap, Awesome fonts and Collections.
+   aldeed:collection2 was used to put control on what can go into the collection
+
+e) I used meteorhacks:subs-manager for better subscription management
+
+f) Mocha Test framework for testing
+
+
+Duration required:
+Although, the actual application was put together in about 2 hours, I spend some time look for generating the fingerprint. I initially explored some meteor based packages, but
+later decided to use the library from cloud flare reference.

@@ -1,0 +1,39 @@
+<template name="messageList">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 ">
+                <h1 class="page-header">Messages Demo</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="btn btn-default border-radius pull-right" id="btn_add"><i class="fa fa-plus" aria-hidden="true"></i></div>
+        </div>
+        {{#if isAddMode}}
+            <div class="row">
+                {{>addNewMessage}}
+            </div>
+        {{/if}}
+
+        <div class="row">
+            {{#each Messages}}
+                {{>message}}
+            {{/each}}
+
+        </div>
+    </div>
+</template>
+
+<template name="message">
+    <div class="message-rec">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="msg-text">{{msg_text}}</div>
+                <div class="created-date pull-left">{{created_at}}</div>
+            </div>
+            <div class="col-md-2">
+
+                <div class="btn btn-default border-radius pull-right" id="btn_delete"><i class="fa fa-trash" aria-hidden="true"></i></div>
+            </div>
+        </div>
+    </div>
+</template>

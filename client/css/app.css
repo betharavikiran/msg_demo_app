@@ -1,0 +1,47 @@
+/* Global Styles */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    padding-top: 25px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background-color: #27fce5;
+}
+
+
+.message-rec{
+    margin: 10px 1px;
+    padding: 10px;
+    background-color: white;
+
+}
+
+.add-message{
+    padding: 4px;
+    margin: 15px;
+    background-color: #1b93d5;
+}
+
+.msg-text{
+    font-size: medium;
+    font-weight: 600;
+}
+
+.created-date{
+    font-size: small;
+    font-weight: 300;
+    color: #0074d9;
+    padding-top:5px;
+    margin-top: 10px;
+}
+
+footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:40px;
+    width:100%;
+    background: #fcf7ec;
+}
